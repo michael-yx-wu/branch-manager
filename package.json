@@ -1,0 +1,16 @@
+{
+  "name": "branch-manager",
+  "version": "0.1.0",
+  "description": "Manage your branches on Github",
+  "main": "./dist/main.js",
+  "repository": "https://github.com/michael-yx-wu/branch-manager",
+  "author": "Michael Wu <michael.yixuan.wu@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p .",
+    "watch": "tsc -w -p ."
+  },
+  "devDependencies": {
+    "typescript": "2.3.4"
+  }
+}
