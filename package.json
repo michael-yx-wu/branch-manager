@@ -6,11 +6,35 @@
   "repository": "https://github.com/michael-yx-wu/branch-manager",
   "author": "Michael Wu <michael.yixuan.wu@gmail.com>",
   "license": "MIT",
+  "bin": {
+    "branch-manager": "./main.js",
+    "branch-manager-lock": "./commands/lock.js",
+    "branch-manager-unlock": "./commands/unlock.js"
+  },
   "scripts": {
-    "build": "tsc -p .",
-    "watch": "tsc -w -p ."
+    "clean": "npm run clean:build && npm run clean:node-modules",
+    "clean:build": "rm -rf build",
+    "clean:node-modules": "rm -rf node_modules",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "tslint 'src/**/*.ts'",
+    "copy-package-json": "mkdir -p build; cp package.json build",
+    "dist": "npm run build && npm run copy-package-json"
+  },
+  "dependencies": {
+    "commander": "^2.10.0",
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.4",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
-    "typescript": "2.3.4"
+    "@types/commander": "^2.9.1",
+    "@types/node": "^8.0.6",
+    "@types/request-promise-native": "^1.0.5",
+    "@types/webpack": "^3.0.1",
+    "@types/winston": "^2.3.3",
+    "ts-node": "^3.1.0",
+    "tslint": "^5.5.0",
+    "typescript": "2.4.1"
   }
 }

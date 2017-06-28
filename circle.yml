@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/branch-manager
+    docker:
+      - image: circleci/node:7.10.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - branch-manager-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install dependencies
+          command: yarn
+      - run:
+          name: Build
+          command: yarn dist
+      - run:
+          name: Lint
+          command: yarn lint
+      - save_cache:
+          key: branch-manager-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.yarn-cache

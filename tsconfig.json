@@ -1,19 +1,20 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "outDir": "build",
-        "removeComments": true,
-        "strictNullChecks": true
-    },
-    "exclude": [
-        "build",
-        "dist",
-        "node_modules"
-    ]
+  "compilerOptions": {
+    "declaration": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "build",
+    "removeComments": false,
+    "strictNullChecks": true,
+    "stripInternal": true,
+    "target": "ES6"
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
 }
