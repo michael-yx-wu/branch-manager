@@ -24,6 +24,7 @@ jobs:
             - ~/.yarn-cache
       - deploy:
           name: Publish to NPM if tagged
+          working_directory: ~/branch-manager/build
           command: |
             set -euo pipefail
             TAG=${CIRCLE_TAG:-}
