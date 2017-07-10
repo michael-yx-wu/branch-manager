@@ -18,8 +18,10 @@
     "build": "tsc",
     "watch": "tsc -w",
     "lint": "tslint 'src/**/*.ts'",
-    "copy-package-json": "mkdir -p build; cp package.json build",
-    "dist": "npm run build && npm run copy-package-json"
+    "copy": "npm run copy:package-json && npm run copy:readme",
+    "copy:package-json": "mkdir -p build; cp package.json build",
+    "copy:readme": "mkdir -p build; cp README.md build",
+    "dist": "npm run build && npm run copy"
   },
   "dependencies": {
     "commander": "^2.10.0",
