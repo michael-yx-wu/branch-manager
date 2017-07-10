@@ -64,8 +64,8 @@ Options:
 
 ## Configuration
 
-Set global settings in `~/bmconfig.json`. Local settings will be read from `./bmconfig.json`.
-
+Set global settings in a `bmconfig.json`. Settings from `./bmconfig.json` will be merged with global
+settings in `~/bmconfig.json` with local settings taking priority.
 
 ```json
 {
