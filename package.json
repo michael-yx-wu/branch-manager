@@ -1,6 +1,6 @@
 {
   "name": "branch-manager",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Manage your branches on Github",
   "main": "./dist/main.js",
   "repository": "https://github.com/michael-yx-wu/branch-manager",
