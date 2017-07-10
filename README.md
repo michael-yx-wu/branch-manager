@@ -1,4 +1,4 @@
-# BranchManager
+# BranchManager [![circleci](https://circleci.com/gh/michael-yx-wu/branch-manager.png?circle-token=63c5b956c21d1afba082da217d09a18f7c87f392)](https://circleci.com/gh/michael-yx-wu/branch-manager/tree/master)
 
 `BranchManager` can easily lock and unlock branches in your Github repository.
 
