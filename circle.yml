@@ -22,10 +22,18 @@ jobs:
           key: branch-manager-{{ checksum "yarn.lock" }}
           paths:
             - ~/.yarn-cache
+      - deploy:
+          name: Publish to NPM if tagged
+          command: |
+            set -euo pipefail
+            TAG=${CIRCLE_TAG:-}
+            if [[ ${TAG} =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+              npm publish
+            else
+              echo "Not publishing: build was not triggered by a proper release tag"
+            fi
 
 deployment:
   npm:
-    tag: /[0-9]+\.[0-9]+\.[0-9]+/
-    commands:
-      - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-      - cd build && npm publish
+    tag: /^[0-9]+\.[0-9]+\.[0-9]+$/
