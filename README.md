@@ -67,7 +67,7 @@ Options:
 Set global settings in a `bmconfig.json`. Settings from `./bmconfig.json` will be merged with global
 settings in `~/bmconfig.json` with local settings taking priority.
 
-```json
+```
 {
   "branchProtectionOptions": <branch protection object>,
   "caFilePath": "<path to CA file>",
