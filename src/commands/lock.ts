@@ -65,7 +65,12 @@ function run(unlockOptions: ILockOptions) {
         token,
     } = unlockOptions;
     const branchManager = new BranchManager(githubApi, token, logLevel, caFileContents);
-    branchManager.lockMatchingBranches(repository, branch, branchProtectionOptions, dryRun);
+    branchManager.lockMatchingBranches(repository, branch, branchProtectionOptions, dryRun)
+        .then(({ error }) => {
+            if (error !== undefined) {
+                throw error;
+            }
+        });
 }
 
 main();
