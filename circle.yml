@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/branch-manager
     docker:
-      - image: circleci/node:7.10.0
+      - image: circleci/node:8.1.2
     steps:
       - checkout
       - restore_cache:
