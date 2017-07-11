@@ -156,7 +156,7 @@ export class BranchManager {
         if (protectedBranchesOnly) {
             uri = uri.concat("?protected=true");
         }
-        const requestOptions = this.getDefaultRequestOptions(uri);
+        let requestOptions = this.getDefaultRequestOptions(uri);
         let branches: IBranch[] = [];
         do {
             this.logger.debug(`GET ${uri}`);
@@ -171,6 +171,9 @@ export class BranchManager {
                 }
                 this.logger.debug(`Got link header: ${maybeLinkHeader}`);
                 uri = this.getNextLink(maybeLinkHeader as string);
+                if (uri !== undefined) {
+                    requestOptions = this.getDefaultRequestOptions(uri);
+                }
             } catch (error) {
                 throw error;
             }
