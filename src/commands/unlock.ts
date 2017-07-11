@@ -54,7 +54,12 @@ function main() {
 function run(unlockOptions: IUnlockOptions) {
     const { branch, caFileContents, dryRun, githubApi, logLevel, repository, token } = unlockOptions;
     const branchManager = new BranchManager(githubApi, token, logLevel, caFileContents);
-    branchManager.unlockMatchingBranches(repository, branch, dryRun);
+    branchManager.unlockMatchingBranches(repository, branch, dryRun)
+        .then(({ error }) => {
+            if (error !== undefined) {
+                throw error;
+            }
+        });
 }
 
 main();
