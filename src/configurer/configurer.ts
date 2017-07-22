@@ -87,6 +87,15 @@ export class Configurer {
     }
 
     /**
+     * Returns the Github API URI.
+     *
+     * @returns {string | undefined}
+     */
+    public getGithubAPI() {
+        return this.config.githubAPI;
+    }
+
+    /**
      * Return the Github personal access token or undefined if it is not set.
      *
      * @returns {string | undefined}

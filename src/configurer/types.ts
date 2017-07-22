@@ -4,5 +4,6 @@ import { IBranchProtectionOptions } from "../branch-manager/types";
 export interface IBranchManagerConfig {
     branchProtectionOptions?: IBranchProtectionOptions;
     caFilePath?: string;
+    githubAPI?: string;
     token?: string;
 }

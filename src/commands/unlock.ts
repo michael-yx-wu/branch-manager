@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import * as Winston from "winston";
 import { BranchManager, LogLevel } from "../branch-manager";
-import { getGithubApi, getLogLevel, getMissingOptions, validateOptions } from "../utils";
-import { getCaFileContents, getToken } from "../utils/configuration";
+import { getLogLevel, getMissingOptions, validateOptions } from "../utils";
+import { getCaFileContents, getGithubAPI, getToken } from "../utils/configuration";
 import { Parser } from "./parser";
 
 interface IUnlockOptions {
@@ -30,7 +30,7 @@ function main() {
         branch,
         caFileContents: getCaFileContents(caFilePath),
         dryRun,
-        githubApi: getGithubApi(githubApi),
+        githubApi: getGithubAPI(githubApi),
         logLevel: getLogLevel(verbose, debug),
         repository,
         token: getToken(token),
