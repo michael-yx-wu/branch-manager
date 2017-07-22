@@ -17,17 +17,6 @@ export function branchesToString(branches: IBranch[]) {
 }
 
 /**
- * Return the default Github API URI if `githubApi` is undefined.
- *
- * @internal
- * @param {string} [githubApi] The custom Github API URI to use
- * @return {string}
- */
-export function getGithubApi(githubApi?: string) {
-    return githubApi !== undefined ? githubApi : "https://api.github.com";
-}
-
-/**
  * Return the appropriate log level depending on the value of `verbose` or `debug`. The default
  * logging level is info.
  *

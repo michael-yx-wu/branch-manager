@@ -27,6 +27,25 @@ export function getCaFileContents(caFilePath?: string) {
 }
 
 /**
+ * Returns `githubAPI` if it is not null or undefined. Otherwise returns the `githubAPI` from a
+ * `bmconfig.json` or the public Github API URI if that is also null.
+ *
+ * @internal
+ * @param {string} [githubAPI] The Github API
+ * @returns {string}
+ */
+export function getGithubAPI(githubAPI?: string) {
+    if (githubAPI != null) {
+        return githubAPI;
+    }
+    const configuredGithubAPI = Configurer.loadMergedConfiguration().getGithubAPI();
+    if (configuredGithubAPI !== undefined) {
+        return configuredGithubAPI;
+    }
+    return "https://api.github.com";
+}
+
+/**
  * Returns `token` if it is not null or undefined. Otherwise returns the value of the token in the
  * configuration.
  *
